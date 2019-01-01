@@ -1,0 +1,109 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "promise"
+  ],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-base",
+    "plugin:promise/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "max-len": [
+      2,
+      {
+        "code": 150,
+        "tabWidth": 4,
+        "ignoreUrls": true
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore"
+      }
+    ],
+    "no-sequences": "warn",
+    "global-require": "off",
+    "new-cap": "off",
+    "no-shadow": "warn",
+    "consistent-return": "off",
+    "semi": [
+      "error",
+      "always"
+    ],
+    "class-methods-use-this": "off",
+    "max-classes-per-file": "off",
+    "require-await": "error",
+    "no-useless-constructor": "warn",
+    "camelcase": "warn",
+    "arrow-parens": "warn",
+    "lines-between-class-members": [
+      "error",
+      "always"
+    ],
+    "prefer-destructuring": "warn",
+    "no-unused-expressions": "off",
+    "@typescript-eslint/camelcase": "warn",
+    "@typescript-eslint/ban-ts-ignore": "warn",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "semi",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": false
+        }
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "off"
+    ],
+    "@typescript-eslint/no-explicit-any": [
+      "off"
+    ],
+    "@typescript-eslint/no-var-requires": "off",
+    "import/no-mutable-exports": "warn",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "import/no-named-default": "warn",
+    "import/no-dynamic-require": "off",
+    "promise/always-return": "warn",
+    "promise/no-return-wrap": "error",
+    "promise/param-names": "error",
+    "promise/catch-or-return": "error",
+    "promise/no-native": "off",
+    "promise/no-nesting": "warn",
+    "promise/no-promise-in-callback": "warn",
+    "promise/no-callback-in-promise": "warn",
+    "promise/avoid-new": "warn",
+    "promise/no-new-statics": "error",
+    "promise/no-return-in-finally": "warn",
+    "promise/valid-params": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  }
+}

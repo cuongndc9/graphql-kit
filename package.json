@@ -1,0 +1,90 @@
+{
+  "name": "graphql-kit",
+  "version": "1.2.1",
+  "main": "src/index.ts",
+  "description": "🍣 A Node kit with TypeScript, GraphQL, Sequelize, PostgreSQL and awesome tools.",
+  "scripts": {
+    "start:dev": "nodemon --ignore build/ --exec ts-node src/index.ts",
+    "prebuild": "rm -rf build",
+    "build": "tsc -p tsconfig.build.json",
+    "build:graphql": "graphql-codegen --config codegen.yml",
+    "start": "node ./build/index.js",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint --fix src/**/*.ts",
+    "test": "NODE_PATH=./ NODE_ENV=test mocha --exit",
+    "test:coverage": "NODE_PATH=./ NODE_ENV=test nyc mocha --exit",
+    "docker-compose:start": "./scripts/start.sh",
+    "docker-compose:stop": "./scripts/stop.sh",
+    "docker-compose:rebuild": "./scripts/rebuild.sh",
+    "premigration:status": "yarn build",
+    "premigration:up": "yarn build",
+    "premigration:down": "yarn build",
+    "migration:status": "sequelize-cli db:migrate:status --url \"postgresql://${PG_USER:-postgres}:${PG_PASSWORD:-postgres}@${PG_HOST:-0.0.0.0}:${PG_PORT:-5432}/${PG_DB:-postgres}\" --migrations-path \"./build/migrations\"",
+    "migration:up": "sequelize-cli db:migrate --url \"postgresql://${PG_USER:-postgres}:${PG_PASSWORD:-postgres}@${PG_HOST:-0.0.0.0}:${PG_PORT:-5432}/${PG_DB:-postgres}\" --migrations-path \"./build/migrations\"",
+    "migration:down": "sequelize-cli db:migrate:undo --url \"postgresql://${PG_USER:-postgres}:${PG_PASSWORD:-postgres}@${PG_HOST:-0.0.0.0}:${PG_PORT:-5432}/${PG_DB:-postgres}\" --migrations-path \"./build/migrations\"",
+    "prod:migration:up": "node ./build/components/migration/migrationUp",
+    "prod:migration:down": "node ./build/components/migration/migrationDown"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "yarn lint",
+      "yarn test"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "apollo-server": "^2.15.0",
+    "graphql": "^15.1.0",
+    "graphql-scalars": "^1.1.2",
+    "graphql-tools": "^4.0.7",
+    "joi": "^14.3.1",
+    "juno-js": "^0.1.1",
+    "lodash": "^4.17.15",
+    "pg": "^8.0.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.6",
+    "umzug": "^2.3.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@graphql-codegen/cli": "1.17.8",
+    "@graphql-codegen/typescript": "1.17.8",
+    "@graphql-codegen/typescript-resolvers": "^1.17.9",
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@types/chai": "^4.2.11",
+    "@types/faker": "^4.1.12",
+    "@types/joi": "^14.3.4",
+    "@types/lodash": "^4.14.150",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^12.12.7",
+    "@types/sinon": "^9.0.3",
+    "@types/sinon-test": "^2.4.1",
+    "@types/umzug": "^2.2.3",
+    "@types/validator": "^13.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "faker": "^4.1.0",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.2",
+    "mocha": "^7.1.2",
+    "nodemon": "^1.19.4",
+    "nyc": "^15.0.1",
+    "sequelize-cli": "^6.2.0",
+    "sinon": "^9.0.2",
+    "sinon-test": "^3.0.0",
+    "source-map-support": "^0.5.19",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.7.2"
+  }
+}

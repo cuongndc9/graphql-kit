@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres:10.3
+    container_name: db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - graphql-kit-net
+
+  api-service:
+    container_name: api-service
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - 9000:9000
+    environment:
+      - NODE_ENV=development
+      - PORT=9000
+      - PG_HOST=db
+      - PG_PORT=5432
+      - PG_DB=postgres
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+    volumes:
+      - .:/app
+      - ./node_modules:/app/node_modules
+    networks:
+      - graphql-kit-net
+    depends_on:
+      - db
+
+networks:
+  graphql-kit-net:
+
+volumes:
+  db:

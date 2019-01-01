@@ -1,0 +1,9 @@
+overwrite: true
+schema: "http://127.0.0.1:9000"
+generates:
+  src/types/graphql.type.ts:
+    config:
+      useIndexSignature: true
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
