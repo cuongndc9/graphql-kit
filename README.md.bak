@@ -1,3 +1,4 @@
+Not using GitHub? Find me on [LinkedIn](https://www.linkedin.com/in/cuong9/)!
 # graphql-kit
 
 [![Hits-of-Code](https://hitsofcode.com/github/103cuong/graphql-kit)](https://hitsofcode.com/view/github/103cuong/graphql-kit)
