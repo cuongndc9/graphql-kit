@@ -60,5 +60,5 @@ MIT © [Cuong Nguyen](https://www.linkedin.com/in/cuong9/)
 
 
 <!-- INSPIRATIONAL_QUOTE_START -->
-> "It is during our darkest moments that we must focus to see the light." - Aristotle
+> "The way to get started is to quit talking and begin doing." - Walt Disney
 <!-- INSPIRATIONAL_QUOTE_END -->
