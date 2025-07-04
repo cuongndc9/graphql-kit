@@ -60,5 +60,5 @@ MIT © [Cuong Nguyen](https://www.linkedin.com/in/cuong9/)
 
 
 <!-- INSPIRATIONAL_QUOTE_START -->
-> "People who are crazy enough to think they can change the world, are the ones who do." - Rob Siltanen
+> "It's not whether you get knocked down, it's whether you get up." - Vince Lombardi
 <!-- INSPIRATIONAL_QUOTE_END -->
